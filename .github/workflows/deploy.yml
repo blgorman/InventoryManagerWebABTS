@@ -84,8 +84,7 @@ jobs:
             --resource-group $RG_NAME \
             --plan $APP_PLAN \
             --name $APP_NAME \
-            --multicontainer-config-type DOCKER \
-            --multicontainer-config-file /dev/null || true
+            --deployment-container-image-name blgorman/invmgr:latest
 
           az webapp deployment slot create \
             --resource-group $RG_NAME \
