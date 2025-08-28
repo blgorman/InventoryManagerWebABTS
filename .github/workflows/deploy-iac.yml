@@ -26,10 +26,15 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       
-      - name: Deploy IAC (Bicep)
-        run: |
-          az bicep deploy \
-            --file iac/main.bicep \
-            --parameters iac/main.parameters.json \
-            --resource-group ${{ env.RG_NAME }}
+      - name: Deployment
+        uses: azure/bicep-deploy@v2
+        with:
+            type: deployment
+            operation: create
+            name: deployinvmgr-{{ github.run_id }}
+            location: centralus
+            scope: subscription
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+            template-file: ./main.bicep
+            parameters-file: ./main.parameters.json
 
