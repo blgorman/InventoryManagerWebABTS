@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'iac/**'
+  workflow_dispatch:
 
 permissions:
   id-token: write
