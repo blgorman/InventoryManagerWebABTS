@@ -28,8 +28,8 @@ jobs:
       
       - name: Deploy IAC (Bicep)
         run: |
-          az deployment group create \
-            --resource-group ${{ env.RG_NAME }} \
-            --template-file iac/main.bicep \
-            --parameters @iac/main.parameters.json
+          az bicep deploy \
+            --file iac/main.bicep \
+            --parameters iac/main.parameters.json \
+            --resource-group ${{ env.RG_NAME }}
 
