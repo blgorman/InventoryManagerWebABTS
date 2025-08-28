@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resourceGroupName": {
+      "value": "rg-inventorymgrweb"
+    },
+    "location": {
+      "value": "centralus"
+    },
+    "sqlServerName": {
+      "value": "invmgrsql20251231blg"
+    },
+    "adminUser": {
+      "value": "sqladmin"
+    },
+    "adminPassword": {
+      "value": "Password#123!"
+    },
+    "sqlDbName": {
+      "value": "invmgrdb"
+    },
+    "databaseSku": {
+      "value": "basic"
+    },
+    "appServicePlanName": {
+      "value": "asp-InventoryManager"
+    },
+    "sku": {
+      "value": "P0V3"
+    },
+    "appName": {
+      "value": "inventorymanagerweb"
+    }
+  }
+}
