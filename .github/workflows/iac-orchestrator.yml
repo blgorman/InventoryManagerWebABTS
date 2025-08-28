@@ -1,0 +1,14 @@
+name: IAC Deploy Orchestrator
+
+on:
+  push:
+    paths:
+      - 'iac/**'
+
+jobs:
+  deploy-iac:
+    uses: ./.github/workflows/deploy-iac.yml
+    secrets:
+      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}

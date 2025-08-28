@@ -32,7 +32,7 @@ param sku string = 'P0V3'
 param appName string = 'inventorymanagerweb'
 
 // Create resource group
-resource resourceGroup 'Microsoft.Resources/resourceGroups@2023-07-01' = {
+resource resourceGroup 'Microsoft.Resources/resourceGroups@2025-04-01' = {
   name: resourceGroupName
   location: location
 }

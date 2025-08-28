@@ -16,7 +16,7 @@ var uniqueSuffix = uniqueString(resourceGroup().id)
 var sqlServerNameUnique = '${sqlServerName}-${uniqueSuffix}'
 
 // Create SQL Server
-resource sqlServer 'Microsoft.Sql/servers@2023-05-01-preview' = {
+resource sqlServer 'Microsoft.Sql/servers@2024-11-01-preview' = {
   name: sqlServerNameUnique
   location: location
   properties: {
@@ -28,7 +28,7 @@ resource sqlServer 'Microsoft.Sql/servers@2023-05-01-preview' = {
 }
 
 // Create firewall rule to allow Azure services
-resource allowAzureServices 'Microsoft.Sql/servers/firewallRules@2023-05-01-preview' = {
+resource allowAzureServices 'Microsoft.Sql/servers/firewallRules@2024-11-01-preview' = {
   name: 'AllowAzureServices'
   parent: sqlServer
   properties: {

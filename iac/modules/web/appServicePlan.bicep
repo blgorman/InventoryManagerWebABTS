@@ -8,7 +8,7 @@ param sku string = 'P0V3'
 param location string = resourceGroup().location
 
 // Create App Service Plan
-resource appServicePlan 'Microsoft.Web/serverfarms@2023-01-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
   name: appServicePlanName
   location: location
   kind: 'linux'

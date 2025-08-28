@@ -11,7 +11,7 @@ param sqlDbName string
 param location string = resourceGroup().location
 
 // Get reference to existing SQL Server
-resource existingSqlServer 'Microsoft.Sql/servers@2023-05-01-preview' existing = {
+resource existingSqlServer 'Microsoft.Sql/servers@2024-11-01-preview' existing = {
   name: sqlServerName
 }
 
@@ -35,7 +35,7 @@ var skuMapping = {
 }
 
 // Create SQL Database
-resource sqlDatabase 'Microsoft.Sql/servers/databases@2023-05-01-preview' = {
+resource sqlDatabase 'Microsoft.Sql/servers/databases@2024-11-01-preview' = {
   name: sqlDbName
   parent: existingSqlServer
   location: location

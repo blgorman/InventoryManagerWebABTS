@@ -15,12 +15,12 @@ param sqlDbName string
 param webAppName string
 
 // Get reference to existing Web App
-resource existingWebApp 'Microsoft.Web/sites@2023-01-01' existing = {
+resource existingWebApp 'Microsoft.Web/sites@2024-11-01' existing = {
   name: webAppName
 }
 
 // Get reference to existing staging slot
-resource existingStagingSlot 'Microsoft.Web/sites/slots@2023-01-01' existing = {
+resource existingStagingSlot 'Microsoft.Web/sites/slots@2024-11-01' existing = {
   name: 'staging'
   parent: existingWebApp
 }
@@ -29,7 +29,7 @@ resource existingStagingSlot 'Microsoft.Web/sites/slots@2023-01-01' existing = {
 var connectionString = 'Server=tcp:${sqlServerName}.${environment().suffixes.sqlServerHostname},1433;Initial Catalog=${sqlDbName};User ID=${sqlServerAdmin};Password=${sqlServerPassword};Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;'
 
 // Configure App Service application settings for production
-resource productionAppSettings 'Microsoft.Web/sites/config@2023-01-01' = {
+resource productionAppSettings 'Microsoft.Web/sites/config@2024-11-01' = {
   name: 'appsettings'
   parent: existingWebApp
   properties: {
@@ -40,7 +40,7 @@ resource productionAppSettings 'Microsoft.Web/sites/config@2023-01-01' = {
 }
 
 // Configure App Service application settings for staging
-resource stagingAppSettings 'Microsoft.Web/sites/slots/config@2023-01-01' = {
+resource stagingAppSettings 'Microsoft.Web/sites/slots/config@2024-11-01' = {
   name: 'appsettings'
   parent: existingStagingSlot
   properties: {

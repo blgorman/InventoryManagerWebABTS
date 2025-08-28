@@ -12,7 +12,7 @@ var uniqueSuffix = uniqueString(resourceGroup().id)
 var appServiceNameUnique = '${appName}-${uniqueSuffix}'
 
 // Create App Service
-resource appService 'Microsoft.Web/sites@2023-01-01' = {
+resource appService 'Microsoft.Web/sites@2024-11-01' = {
   name: appServiceNameUnique
   location: location
   kind: 'app,linux,container'
@@ -33,7 +33,7 @@ resource appService 'Microsoft.Web/sites@2023-01-01' = {
 }
 
 // Create staging deployment slot
-resource stagingSlot 'Microsoft.Web/sites/slots@2023-01-01' = {
+resource stagingSlot 'Microsoft.Web/sites/slots@2024-11-01' = {
   name: 'staging'
   parent: appService
   location: location

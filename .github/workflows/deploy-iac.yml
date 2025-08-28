@@ -1,0 +1,35 @@
+name: Deploy IAC to Azure
+
+on:
+  workflow_call:
+    secrets:
+      AZURE_CLIENT_ID:
+        required: true
+      AZURE_TENANT_ID:
+        required: true
+      AZURE_SUBSCRIPTION_ID:
+        required: true
+
+jobs:
+  deploy-iac:
+    runs-on: ubuntu-latest
+    environment: 
+        name: dev
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      
+      - name: Deploy IAC (Bicep)
+        run: |
+          az deployment group create \
+            --resource-group ${{ env.RG_NAME }} \
+            --template-file iac/main.bicep \
+            --parameters @iac/main.parameters.json
+

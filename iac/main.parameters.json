@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "resourceGroupName": {
-      "value": "rg-inventorymgrweb"
+      "value": "rg-inventorymgrwebabtslive"
     },
     "location": {
       "value": "centralus"
     },
     "sqlServerName": {
-      "value": "invmgrsql20251231blg"
+      "value": "invmgrsqlabtslive2025"
     },
     "adminUser": {
       "value": "sqladmin"
@@ -21,7 +21,7 @@
       "value": "invmgrdb"
     },
     "databaseSku": {
-      "value": "basic"
+      "value": "Basic"
     },
     "appServicePlanName": {
       "value": "asp-InventoryManager"
