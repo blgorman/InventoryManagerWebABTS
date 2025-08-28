@@ -31,7 +31,7 @@ jobs:
         with:
             type: deployment
             operation: create
-            name: deployinvmgr-{{ github.run_id }}
+            name: deployinvmgr-${{ github.run_id }}
             location: centralus
             scope: subscription
             subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
