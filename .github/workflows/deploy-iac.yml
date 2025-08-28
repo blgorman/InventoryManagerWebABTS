@@ -35,6 +35,6 @@ jobs:
             location: centralus
             scope: subscription
             subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-            template-file: ./main.bicep
-            parameters-file: ./main.parameters.json
+            template-file: ./iac/main.bicep
+            parameters-file: ./iac/main.parameters.json
 

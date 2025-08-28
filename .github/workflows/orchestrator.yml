@@ -3,7 +3,7 @@ name: Inventory Manager Build and Deploy Orchestrator
 on:
   push:
     branches:
-      - main
+      - mainnoway
   workflow_dispatch:
     
 permissions:
