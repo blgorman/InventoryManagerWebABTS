@@ -5,6 +5,10 @@ on:
     paths:
       - 'iac/**'
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   deploy-iac:
     uses: ./.github/workflows/deploy-iac.yml
